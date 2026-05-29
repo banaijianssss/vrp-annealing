@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vrp-annealing"
+version = "0.2.0"
+description = "CVRP / VRPTW simulated annealing solver"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.20",
+    "matplotlib>=3.5",
+]
+
+[project.scripts]
+vrp = "vrp.__main__:main"
+cvrp = "vrp.cli.run_cvrp:main"
+vrptw = "vrp.cli.run_vrptw:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vrp*"]
+
+[tool.setuptools.package-data]
+vrp = ["py.typed"]
